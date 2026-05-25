@@ -2,6 +2,7 @@ package com.hont.app.network
 
 import com.hont.app.diet.AddDietLogRequest
 import com.hont.app.diet.ApiResponse
+import com.hont.app.diet.DietAddResponse
 import com.hont.app.diet.DietLogResponse
 import com.hont.app.diet.FoodSearchResult
 import retrofit2.Response
@@ -26,7 +27,7 @@ interface ApiService {
 
     // 식단 항목 추가
     @POST("api/diet/logs")
-    suspend fun addDietLog(@Body request: AddDietLogRequest): ApiResponse<DietLogResponse>
+    suspend fun addDietLog(@Body request: AddDietLogRequest): ApiResponse<DietAddResponse>
 
     // 식단 항목 삭제
     @DELETE("api/diet/logs/items/{itemId}")

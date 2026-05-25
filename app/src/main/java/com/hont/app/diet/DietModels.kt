@@ -83,14 +83,20 @@ data class DietLogResponse(
 
 // 식단 기록 추가 요청 DTO
 data class AddDietLogRequest(
-    @SerializedName("date")         val date: String,
+    @SerializedName("dietDate")     val dietDate: String,
     @SerializedName("mealType")     val mealType: String,
+    @SerializedName("foodCode")     val foodCode: String? = null,
     @SerializedName("foodName")     val foodName: String,
-    @SerializedName("amountG")      val amountG: Int,
-    @SerializedName("calories")     val calories: Int,
-    @SerializedName("carbohydrate") val carbs: Float,
+    @SerializedName("servingSize")  val servingSize: String,
+    @SerializedName("calories")     val calories: Double,
+    @SerializedName("carbohydrate") val carbohydrate: Float,
     @SerializedName("protein")      val protein: Float,
     @SerializedName("fat")          val fat: Float
+)
+
+// 식단 추가 응답 DTO (id만 파싱, 나머지는 서버 재조회)
+data class DietAddResponse(
+    @SerializedName("id") val id: Long = 0
 )
 
 // RecyclerView 멀티타입 아이템
