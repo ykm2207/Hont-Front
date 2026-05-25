@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:fitsSystemWindows="true"
+        app:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll|snap">
+
+            <!-- 월 이동 헤더 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="4dp">
+
+                <ImageButton
+                    android:id="@+id/btn_prev_month"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/ic_chevron_left"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="이전 달" />
+
+                <TextView
+                    android:id="@+id/tv_month_year"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <ImageButton
+                    android:id="@+id/btn_next_month"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="다음 달" />
+            </LinearLayout>
+
+            <!-- 요일 헤더 (일~토) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:orientation="horizontal">
+
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="일" android:textSize="12sp" android:textColor="@color/calendar_sunday" />
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="월" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="화" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="수" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="목" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="금" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="토" android:textSize="12sp" android:textColor="@color/calendar_saturday" />
+            </LinearLayout>
+
+            <!-- 캘린더 본체 -->
+            <com.kizitonwose.calendar.view.CalendarView
+                android:id="@+id/calendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cv_dayViewResource="@layout/item_calendar_day"
+                app:cv_orientation="horizontal"
+                app:cv_scrollPaged="true" />
+
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- 운동 기록 목록 + 빈 화면 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_workout_logs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="80dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이 날의 운동 기록이 없어요"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="루틴을 추가해서 기록을 시작해보세요"
+                android:textColor="@color/text_disabled"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:text="이 날 운동 추가"
+                android:textSize="13sp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:cornerRadius="20dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

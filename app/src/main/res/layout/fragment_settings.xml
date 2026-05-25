@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="100dp">
+
+        <!-- ===== 계정 ===== -->
+        <TextView style="@style/SettingsSectionHeader" android:text="계정" />
+
+        <androidx.cardview.widget.CardView style="@style/SettingsCard">
+            <LinearLayout style="@style/SettingsCardInner">
+
+                <LinearLayout style="@style/SettingsRow" android:clickable="false" android:focusable="false">
+                    <TextView style="@style/SettingsLabel" android:text="로그인 계정" />
+                    <TextView android:id="@+id/tv_account_name"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout android:id="@+id/ll_logout" style="@style/SettingsRow">
+                    <TextView style="@style/SettingsLabel" android:text="로그아웃" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout android:id="@+id/ll_delete_account" style="@style/SettingsRow">
+                    <TextView style="@style/SettingsLabel"
+                        android:text="회원 탈퇴"
+                        android:textColor="@color/calendar_sunday" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== 알림 ===== -->
+        <TextView style="@style/SettingsSectionHeader" android:text="알림" />
+
+        <androidx.cardview.widget.CardView style="@style/SettingsCard">
+            <LinearLayout style="@style/SettingsCardInner">
+
+                <!-- 운동 알림 -->
+                <LinearLayout style="@style/SettingsRow" android:clickable="false" android:focusable="false">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/SettingsLabel" android:text="운동 알림" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="오늘의 운동을 잊지 마세요"
+                            android:textSize="12sp" android:textColor="@color/text_disabled" />
+                    </LinearLayout>
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/sw_workout_notif"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/ll_workout_notif_time" style="@style/SettingsRow"
+                    android:visibility="gone" android:paddingStart="16dp">
+                    <TextView style="@style/SettingsLabel" android:text="알림 시간"
+                        android:textColor="@color/text_secondary" />
+                    <TextView android:id="@+id/tv_workout_notif_time"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/primary"
+                        android:layout_marginEnd="4dp" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <!-- 아침 식단 알림 -->
+                <LinearLayout style="@style/SettingsRow" android:clickable="false" android:focusable="false">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/SettingsLabel" android:text="아침 식단 알림" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="아침 식사를 기록해보세요"
+                            android:textSize="12sp" android:textColor="@color/text_disabled" />
+                    </LinearLayout>
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/sw_breakfast_notif"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/ll_breakfast_notif_time" style="@style/SettingsRow"
+                    android:visibility="gone" android:paddingStart="16dp">
+                    <TextView style="@style/SettingsLabel" android:text="알림 시간"
+                        android:textColor="@color/text_secondary" />
+                    <TextView android:id="@+id/tv_breakfast_notif_time"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/primary"
+                        android:layout_marginEnd="4dp" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <!-- 점심 식단 알림 -->
+                <LinearLayout style="@style/SettingsRow" android:clickable="false" android:focusable="false">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/SettingsLabel" android:text="점심 식단 알림" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="점심 식사를 기록해보세요"
+                            android:textSize="12sp" android:textColor="@color/text_disabled" />
+                    </LinearLayout>
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/sw_lunch_notif"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/ll_lunch_notif_time" style="@style/SettingsRow"
+                    android:visibility="gone" android:paddingStart="16dp">
+                    <TextView style="@style/SettingsLabel" android:text="알림 시간"
+                        android:textColor="@color/text_secondary" />
+                    <TextView android:id="@+id/tv_lunch_notif_time"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/primary"
+                        android:layout_marginEnd="4dp" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <!-- 저녁 식단 알림 -->
+                <LinearLayout style="@style/SettingsRow" android:clickable="false" android:focusable="false">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/SettingsLabel" android:text="저녁 식단 알림" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="저녁 식사를 기록해보세요"
+                            android:textSize="12sp" android:textColor="@color/text_disabled" />
+                    </LinearLayout>
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/sw_dinner_notif"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/ll_dinner_notif_time" style="@style/SettingsRow"
+                    android:visibility="gone" android:paddingStart="16dp">
+                    <TextView style="@style/SettingsLabel" android:text="알림 시간"
+                        android:textColor="@color/text_secondary" />
+                    <TextView android:id="@+id/tv_dinner_notif_time"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/primary"
+                        android:layout_marginEnd="4dp" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== 앱 설정 ===== -->
+        <TextView style="@style/SettingsSectionHeader" android:text="앱 설정" />
+
+        <androidx.cardview.widget.CardView style="@style/SettingsCard">
+            <LinearLayout style="@style/SettingsCardInner">
+
+                <LinearLayout style="@style/SettingsRow" android:clickable="false" android:focusable="false">
+                    <TextView style="@style/SettingsLabel" android:layout_weight="1" android:text="다크 모드" />
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/sw_dark_mode"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout android:id="@+id/ll_calorie_goal" style="@style/SettingsRow">
+                    <TextView style="@style/SettingsLabel" android:layout_weight="1" android:text="일일 칼로리 목표" />
+                    <TextView android:id="@+id/tv_calorie_goal_value"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/primary"
+                        android:layout_marginEnd="4dp" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout android:id="@+id/ll_workout_freq" style="@style/SettingsRow">
+                    <TextView style="@style/SettingsLabel" android:layout_weight="1" android:text="주간 운동 목표" />
+                    <TextView android:id="@+id/tv_workout_freq_value"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/primary"
+                        android:layout_marginEnd="4dp" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== 앱 정보 ===== -->
+        <TextView style="@style/SettingsSectionHeader" android:text="앱 정보" />
+
+        <androidx.cardview.widget.CardView style="@style/SettingsCard">
+            <LinearLayout style="@style/SettingsCardInner">
+
+                <LinearLayout style="@style/SettingsRow" android:clickable="false" android:focusable="false">
+                    <TextView style="@style/SettingsLabel" android:layout_weight="1" android:text="버전" />
+                    <TextView android:id="@+id/tv_app_version"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout android:id="@+id/ll_privacy_policy" style="@style/SettingsRow">
+                    <TextView style="@style/SettingsLabel" android:layout_weight="1" android:text="개인정보처리방침" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout android:id="@+id/ll_terms" style="@style/SettingsRow">
+                    <TextView style="@style/SettingsLabel" android:layout_weight="1" android:text="이용약관" />
+                    <ImageView style="@style/ChevronIcon" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

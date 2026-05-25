@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#4D9EF5</color>
+    <color name="primary_dark">#2979D8</color>
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="kakao_yellow">#FEE500</color>
+    <color name="kakao_text">#191919</color>
+    <color name="google_text">#E0E0E0</color>
+    <color name="google_border">#3C3C3C</color>
+    <color name="text_primary">#E0E0E0</color>
+    <color name="text_secondary">#9E9E9E</color>
+    <color name="text_disabled">#555555</color>
+    <color name="calendar_sunday">#EF5350</color>
+    <color name="calendar_saturday">#42A5F5</color>
+    <color name="divider">#2C2C2C</color>
+</resources>

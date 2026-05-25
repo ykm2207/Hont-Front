@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="4dp">
+
+    <CheckBox
+        android:id="@+id/cb_exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp" />
+
+    <TextView
+        android:id="@+id/tv_exercise_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="14sp"
+        android:textColor="@color/text_primary" />
+
+    <EditText
+        android:id="@+id/et_sets"
+        android:layout_width="36dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="14sp"
+        android:maxLines="1"
+        android:paddingHorizontal="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="세트 ×"
+        android:textSize="12sp"
+        android:textColor="@color/text_secondary"
+        android:paddingHorizontal="4dp" />
+
+    <EditText
+        android:id="@+id/et_reps"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="14sp"
+        android:maxLines="1"
+        android:paddingHorizontal="2dp" />
+
+    <TextView
+        android:id="@+id/tv_unit"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/text_secondary"
+        android:paddingStart="4dp" />
+
+</LinearLayout>

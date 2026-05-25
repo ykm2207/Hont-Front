@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="4dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_routine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_routine_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- 수정 버튼 (편집 모드에서만 표시) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_edit_routine"
+        android:layout_width="52dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="수정"
+        android:textSize="12sp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:textColor="@color/text_secondary"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:cornerRadius="8dp"
+        app:strokeColor="@color/divider"
+        android:visibility="gone" />
+
+    <!-- 시작 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_start_routine"
+        android:layout_width="52dp"
+        android:layout_height="36dp"
+        android:text="시작"
+        android:textSize="13sp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="8dp" />
+
+</LinearLayout>
