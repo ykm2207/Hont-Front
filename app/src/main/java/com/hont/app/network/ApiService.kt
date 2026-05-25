@@ -1,6 +1,7 @@
 package com.hont.app.network
 
 import com.hont.app.diet.AddDietLogRequest
+import com.hont.app.diet.ApiResponse
 import com.hont.app.diet.DietLogResponse
 import com.hont.app.diet.FoodSearchResult
 import retrofit2.Response
@@ -17,15 +18,15 @@ interface ApiService {
 
     // 음식 검색
     @GET("api/diet/foods/search")
-    suspend fun searchFoods(@Query("query") query: String): List<FoodSearchResult>
+    suspend fun searchFoods(@Query("query") query: String): ApiResponse<List<FoodSearchResult>>
 
     // 날짜별 식단 기록 조회
     @GET("api/diet/logs/{date}")
-    suspend fun getDietLogs(@Path("date") date: String): List<DietLogResponse>
+    suspend fun getDietLogs(@Path("date") date: String): ApiResponse<List<DietLogResponse>>
 
     // 식단 항목 추가
     @POST("api/diet/logs")
-    suspend fun addDietLog(@Body request: AddDietLogRequest): DietLogResponse
+    suspend fun addDietLog(@Body request: AddDietLogRequest): ApiResponse<DietLogResponse>
 
     // 식단 항목 삭제
     @DELETE("api/diet/logs/items/{itemId}")

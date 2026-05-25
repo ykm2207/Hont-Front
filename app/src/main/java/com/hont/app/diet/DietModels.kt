@@ -21,6 +21,13 @@ data class DietLogItem(
     val mealType: MealType
 )
 
+// 공통 API 응답 래퍼
+data class ApiResponse<T>(
+    @SerializedName("data")    val data: T?,
+    @SerializedName("message") val message: String = "",
+    @SerializedName("success") val success: Boolean = false
+)
+
 // 음식 검색 결과 (API: GET /api/diet/foods/search)
 data class FoodSearchResult(
     @SerializedName("foodName")    val foodName: String,

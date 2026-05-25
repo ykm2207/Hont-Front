@@ -65,7 +65,7 @@ class DietFragment : Fragment() {
         binding.tvDate.text = date.format(dateFormatter)
         lifecycleScope.launch {
             try {
-                val responses = RetrofitClient.api.getDietLogs(date.toString())
+                val responses = RetrofitClient.api.getDietLogs(date.toString()).data ?: emptyList()
                 val dayMap = mutableMapOf<MealType, MutableList<DietLogItem>>()
                 for (resp in responses) {
                     val item = resp.toDietLogItem()
@@ -129,9 +129,11 @@ class DietFragment : Fragment() {
                     protein = item.protein,
                     fat = item.fat
                 )
-                val saved = RetrofitClient.api.addDietLog(request)
-                val dayMap = logs.getOrPut(currentDate) { mutableMapOf() }
-                dayMap.getOrPut(item.mealType) { mutableListOf() }.add(saved.toDietLogItem())
+                val saved = RetrofitClient.api.addDietLog(request).data
+                if (saved != null) {
+                    val dayMap = logs.getOrPut(currentDate) { mutableMapOf() }
+                    dayMap.getOrPut(item.mealType) { mutableListOf() }.add(saved.toDietLogItem())
+                }
                 renderDate(currentDate)
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "식단 추가에 실패했습니다", Toast.LENGTH_SHORT).show()

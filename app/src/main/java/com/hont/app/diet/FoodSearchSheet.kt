@@ -84,7 +84,7 @@ class FoodSearchSheet : BottomSheetDialogFragment() {
 
         lifecycleScope.launch {
             try {
-                val results = RetrofitClient.api.searchFoods(query)
+                val results = RetrofitClient.api.searchFoods(query).data ?: emptyList()
                 binding.progressSearch.visibility = View.GONE
                 if (results.isEmpty()) {
                     binding.tvSearchEmpty.visibility = View.VISIBLE
